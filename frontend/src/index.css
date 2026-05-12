@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: 'Noto Serif', Georgia, serif; }
+}
+
+@layer components {
+  .gov-card {
+    @apply bg-white rounded border border-gray-200 shadow-gov;
+  }
+  .gov-btn-primary {
+    @apply bg-gov-darkblue text-white px-6 py-2 rounded font-body font-semibold text-sm
+           hover:bg-gov-midblue transition-colors border border-gov-darkblue
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .gov-btn-secondary {
+    @apply bg-white text-gov-darkblue px-6 py-2 rounded font-body font-semibold text-sm
+           hover:bg-gov-lightblue transition-colors border border-gov-darkblue
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .tricolor-bar {
+    height: 5px;
+    background: linear-gradient(90deg, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
+    border-bottom: 1px solid #ddd;
+  }
+  .gov-section-header {
+    @apply bg-gov-darkblue text-white px-4 py-2 text-sm font-semibold font-body
+           flex items-center gap-2 rounded-t;
+  }
+  .gov-table { @apply w-full text-sm border-collapse; }
+  .gov-table th {
+    @apply bg-gov-darkblue text-white px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide;
+  }
+  .gov-table td { @apply px-3 py-2 border-b border-gray-100; }
+  .gov-table tr:nth-child(even) td { @apply bg-blue-50/50; }
+  .gov-table tr:hover td { @apply bg-gov-lightblue/60; }
+  .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: #f1f5f9; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+}
+
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.chakra-spin { animation: spin-slow 20s linear infinite; }
+
+@keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.entity-card-hover:hover { transform: translateY(-1px); }
+.font-mono { font-variant-ligatures: none; }
+mark { cursor: help; }

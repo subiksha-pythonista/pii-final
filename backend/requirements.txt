@@ -1,0 +1,33 @@
+# ── Web Framework ────────────────────────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# ── Database ──────────────────────────────────────────────────────────────────
+sqlalchemy[asyncio]==2.0.30
+aiosqlite==0.20.0            # dev SQLite driver
+asyncpg==0.29.0              # prod PostgreSQL driver
+
+# ── ML / NLP ──────────────────────────────────────────────────────────────────
+spacy==3.7.4
+# After install, download model:  python -m spacy download en_core_web_sm
+
+# ── OCR ───────────────────────────────────────────────────────────────────────
+pytesseract==0.3.10
+Pillow==10.3.0
+pdf2image==1.17.0            # requires poppler-utils OS package
+
+# ── Speech-to-Text ────────────────────────────────────────────────────────────
+openai-whisper==20231117
+# torch is a transitive dep of whisper — pip resolves it automatically
+
+# ── Validation / Serialization ────────────────────────────────────────────────
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv==1.0.1
+
+# ── Optional: Redis / Celery for production task queue ────────────────────────
+# celery[redis]==5.4.0
+# redis==5.0.4
